@@ -1,0 +1,97 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F887 ]
+[d frameptr 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"48 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio2\Lab2_ED2.X\Prelab2.c
+[v _isr isr `II(v  1 e 1 0 ]
+"61
+[v _ioc_portB ioc_portB `(v  1 e 1 0 ]
+"70
+[v _main main `(i  1 e 2 0 ]
+"80
+[v _setup setup `(v  1 e 1 0 ]
+"59 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h
+[v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
+"166
+[v _PORTA PORTA `VEuc  1 e 1 @5 ]
+[s S85 . 1 `uc 1 PS 1 0 :3:0 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+`uc 1 INTEDG 1 0 :1:6 
+`uc 1 nRBPU 1 0 :1:7 
+]
+"1366
+[s S92 . 1 `uc 1 PS0 1 0 :1:0 
+`uc 1 PS1 1 0 :1:1 
+`uc 1 PS2 1 0 :1:2 
+]
+[u S96 . 1 `S85 1 . 1 0 `S92 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES96  1 e 1 @129 ]
+"1416
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+[s S43 . 1 `uc 1 SCS 1 0 :1:0 
+`uc 1 LTS 1 0 :1:1 
+`uc 1 HTS 1 0 :1:2 
+`uc 1 OSTS 1 0 :1:3 
+`uc 1 IRCF 1 0 :3:4 
+]
+"1882
+[s S49 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 IRCF0 1 0 :1:4 
+`uc 1 IRCF1 1 0 :1:5 
+`uc 1 IRCF2 1 0 :1:6 
+]
+[u S54 . 1 `S43 1 . 1 0 `S49 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES54  1 e 1 @143 ]
+"3387
+[v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
+"3449
+[v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
+"3900
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"4107
+[v _RB0 RB0 `VEb  1 e 0 @48 ]
+"4110
+[v _RB1 RB1 `VEb  1 e 0 @49 ]
+"4134
+[v _RBIF RBIF `VEb  1 e 0 @88 ]
+"4251
+[v _SCS SCS `VEb  1 e 0 @1144 ]
+"4320
+[v _T0CS T0CS `VEb  1 e 0 @1037 ]
+"4323
+[v _T0IE T0IE `VEb  1 e 0 @93 ]
+"4326
+[v _T0IF T0IF `VEb  1 e 0 @90 ]
+"39 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio2\Lab2_ED2.X\Prelab2.c
+[v _adc_val adc_val `uc  1 e 1 0 ]
+"70
+[v _main main `(i  1 e 2 0 ]
+{
+"78
+} 0
+"80
+[v _setup setup `(v  1 e 1 0 ]
+{
+"101
+} 0
+"48
+[v _isr isr `II(v  1 e 1 0 ]
+{
+"58
+} 0
+"61
+[v _ioc_portB ioc_portB `(v  1 e 1 0 ]
+{
+"64
+} 0
