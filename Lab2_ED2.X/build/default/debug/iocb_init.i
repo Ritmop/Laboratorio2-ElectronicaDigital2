@@ -1,4 +1,4 @@
-# 1 "Prelab2.c"
+# 1 "iocb_init.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,9 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "Prelab2.c" 2
-# 15 "Prelab2.c"
+# 1 "iocb_init.c" 2
+# 1 "./iocb_init.h" 1
+# 11 "./iocb_init.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2625,163 +2626,19 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 2 3
-# 15 "Prelab2.c" 2
+# 11 "./iocb_init.h" 2
 
-# 1 "./iocb_init.h" 1
-# 13 "./iocb_init.h"
+
 void iocb_init(uint8_t);
-# 16 "Prelab2.c" 2
-
-# 1 "./ADC_lib.h" 1
-# 12 "./ADC_lib.h"
-void adc_init(uint8_t J, uint8_t R, uint8_t clock, uint8_t channel);
-uint16_t adc_read(void);
-void adc_sel_channel(uint8_t channel);
-uint8_t adc_get_channel(void);
-# 17 "Prelab2.c" 2
-
-# 1 "./LCD.h" 1
-# 47 "./LCD.h"
-void Lcd_Port(char a);
-
-void Lcd_Cmd(char a);
-
-void Lcd_Clear(void);
-
-void Lcd_Set_Cursor(char a, char b);
-
-void Lcd_Init(void);
-
-void Lcd_Write_Char(char a);
-
-void Lcd_Write_String(char *a);
-
-void Lcd_Shift_Right(void);
-
-void Lcd_Shift_Left(void);
-# 18 "Prelab2.c" 2
+# 1 "iocb_init.c" 2
 
 
 
-
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-
-
-
-
-uint8_t adc_val;
-
-
-
-void ioc_portB(void);
-void setup(void);
-void output_LCD(void);
-void separar_digitos(uint8_t num, char *dig);
-
-
-
-void __attribute__((picinterrupt(("")))) isr(void){
-    if(T0IF){
-
-        TMR0 = 50;
-        T0IF = 0;
-    }
-    if(RBIF){
-        ioc_portB();
-        RBIF = 0;
-    }
-}
-
-
-void ioc_portB(void){
-    if(!RB0) PORTA++;
-    if(!RB1) PORTA--;
-}
-
-
-
-
-
-int main(void) {
-    setup();
-    while(1){
-
-
-        _delay((unsigned long)((50)*(8000000/4000.0)));
-        adc_val = adc_read()>>8;
-        PORTA = adc_val;
-
-        output_LCD();
-    }
-}
-
-void setup(void){
-
-    ANSEL = 0;
-    ANSELH= 0b00100000;
-    TRISA = 0;
-    PORTA = 0;
-    TRISB = 0;
-    PORTB = 0;
-    TRISD = 0;
-    PORTD = 0;
-    TRISC = 0;
-    PORTC = 0;
-
-
-    OSCCONbits.IRCF = 0b111;
-    SCS = 1;
-
-    iocb_init(0b00100011);
-    adc_init(0, 0, 8, 0b1101);
-
-
+void iocb_init(uint8_t pinesB){
+    TRISB |= pinesB;
+    nRBPU = 0;
+    WPUB |= pinesB;
+    RBIE = 1;
+    IOCB |= pinesB;
     GIE = 1;
-    T0IE = 1;
-    OPTION_REGbits.PS = 0b000;
-    T0CS = 0;
-    TMR0 = 50;
-    T0IF = 0;
-
-
-    Lcd_Init();
-}
-
-void output_LCD(void){
-    Lcd_Clear();
-    Lcd_Set_Cursor(1, 5);
-    Lcd_Write_String("POT: ");
-
-    char decimal[3];
-    separar_digitos(adc_val, decimal);
-
-    Lcd_Write_String(decimal);
-}
-
-
-void separar_digitos(uint8_t num, char *dig){
-    uint8_t unidades,decenas,centenas,residuo_cent,residuo_dec,residuo_unit;
-    centenas = num / 10;
-    residuo_cent = num % 10;
-    decenas = centenas / 10;
-    residuo_dec = centenas % 10;
-    unidades = decenas / 10;
-    residuo_unit = decenas % 10;
-
-    dig[2] = residuo_cent + 0x30;
-    dig[1] = residuo_dec + 0x30;
-    dig[0] = residuo_unit + 0x30;
 }

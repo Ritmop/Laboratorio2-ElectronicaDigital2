@@ -1,4 +1,4 @@
-# 1 "LCD.c"
+# 1 "../../laboratorio2/Lab2_ED2.X/Lab2.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,10 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "LCD.c" 2
-# 11 "LCD.c"
-# 1 "./LCD.h" 1
-# 58 "./LCD.h"
+# 1 "../../laboratorio2/Lab2_ED2.X/Lab2.c" 2
+# 15 "../../laboratorio2/Lab2_ED2.X/Lab2.c"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2627,12 +2625,23 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 2 3
-# 58 "./LCD.h" 2
+# 15 "../../laboratorio2/Lab2_ED2.X/Lab2.c" 2
 
+# 1 "../../laboratorio2/Lab2_ED2.X/iocb_init.h" 1
+# 13 "../../laboratorio2/Lab2_ED2.X/iocb_init.h"
+void iocb_init(uint8_t);
+# 16 "../../laboratorio2/Lab2_ED2.X/Lab2.c" 2
 
+# 1 "../../laboratorio2/Lab2_ED2.X/ADC_lib.h" 1
+# 12 "../../laboratorio2/Lab2_ED2.X/ADC_lib.h"
+void adc_init(uint8_t J, uint8_t R, uint8_t clock, uint8_t channel);
+uint16_t adc_read(void);
+void adc_sel_channel(uint8_t channel);
+uint8_t adc_get_channel(void);
+# 17 "../../laboratorio2/Lab2_ED2.X/Lab2.c" 2
 
-
-
+# 1 "../../laboratorio2/Lab2_ED2.X/LCD.h" 1
+# 63 "../../laboratorio2/Lab2_ED2.X/LCD.h"
 void Lcd_Port(char a);
 
 void Lcd_Cmd(char a);
@@ -2650,111 +2659,170 @@ void Lcd_Write_String(char *a);
 void Lcd_Shift_Right(void);
 
 void Lcd_Shift_Left(void);
-# 11 "LCD.c" 2
+# 18 "../../laboratorio2/Lab2_ED2.X/Lab2.c" 2
+
+# 1 "../../laboratorio2/Lab2_ED2.X/UART.h" 1
+# 17 "../../laboratorio2/Lab2_ED2.X/UART.h"
+void UART_RX_config(long baudrate);
+void UART_TX_config(long baudrate);
+void UART_write_char(char c);
+void UART_write_string(char *s);
+char UART_read_char();
+# 19 "../../laboratorio2/Lab2_ED2.X/Lab2.c" 2
 
 
-void Lcd_Port(char a) {
-    if (a & 1)
-        RD0 = 1;
-    else
-        RD0 = 0;
 
-    if (a & 2)
-        RD1 = 1;
-    else
-        RD1 = 0;
 
-    if (a & 4)
-        RD2 = 1;
-    else
-        RD2 = 0;
+#pragma config FOSC = INTRC_NOCLKOUT
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config MCLRE = OFF
+#pragma config CP = OFF
+#pragma config CPD = OFF
+#pragma config BOREN = OFF
+#pragma config IESO = OFF
+#pragma config FCMEN = OFF
+#pragma config LVP = OFF
 
-    if (a & 8)
-        RD3 = 1;
-    else
-        RD3 = 0;
 
-    if (a & 16)
-        RD4 = 1;
-    else
-        RD4 = 0;
+#pragma config BOR4V = BOR40V
+#pragma config WRT = OFF
 
-    if (a & 32)
-        RD5 = 1;
-    else
-        RD5 = 0;
 
-    if (a & 64)
-        RD6 = 1;
-    else
-        RD6 = 0;
 
-    if (a & 128)
-        RD7 = 1;
-    else
-        RD7 = 0;
+
+uint8_t pot_val;
+uint16_t pot_volt;
+uint8_t counter;
+char UART_read;
+char count[] = {0,0,0};
+char volt[] = {0,0,0};
+
+
+
+
+void ioc_portB(void);
+void setup(void);
+void output_LCD(void);
+void separar_digitos8(uint8_t num, char dig8[]);
+void separar_digitos16(uint16_t num, char dig16[]);
+uint16_t map(uint8_t val, uint8_t min1, uint8_t max1, uint8_t min2, long max2);
+void UART(void);
+
+
+
+void __attribute__((picinterrupt(("")))) isr(void){
+    if(RCIF){
+        UART_read = UART_read_char();
+        RCIF = 0;
+    }
+
 }
+# 76 "../../laboratorio2/Lab2_ED2.X/Lab2.c"
+int main(void) {
+    setup();
+    Lcd_Init();
+    UART_RX_config(9600);
+    UART_TX_config(9600);
+    while(1){
 
 
-void Lcd_Cmd(char a) {
-    RE0 = 0;
-    Lcd_Port(a);
-    RE1 = 1;
-    _delay((unsigned long)((4)*(8000000/4000.0)));
-    RE1 = 0;
-}
+        pot_val = (adc_read()>>8) & 0x00FF;
 
-void Lcd_Clear(void) {
-    Lcd_Cmd(0x01);
-}
+        output_LCD();
 
-void Lcd_Set_Cursor(char a, char b) {
-    char temp, z, y;
-    if (a == 1) {
-        temp = 0x80 + b - 1;
-        Lcd_Cmd(temp);
-    } else if (a == 2) {
-        temp = 0xC0 + b - 1;
-        Lcd_Cmd(temp);
+        UART();
     }
 }
 
-void Lcd_Init(void) {
-    RE0 = 0;
-    Lcd_Port(0x00);
+void setup(void){
 
-    _delay((unsigned long)((50)*(8000000/4000.0)));
-    Lcd_Cmd(0x30);
-    _delay((unsigned long)((5)*(8000000/4000.0)));
-    Lcd_Cmd(0x30);
-    _delay((unsigned long)((100)*(8000000/4000000.0)));
-    Lcd_Cmd(0x30);
+    ANSEL = 0;
+    ANSELH= 0b00100000;
+    TRISB = 32;
+    PORTB = 0;
+    TRISD = 0;
+    PORTD = 0;
+    TRISE = 0;
+    PORTE = 0;
+    TRISC = 0xFF;
+    PORTC = 0;
+    TRISA = 0;
+    PORTA = 0;
 
-    Lcd_Cmd(0x38);
-    Lcd_Cmd(0x0C);
-    Lcd_Cmd(0x01);
-    Lcd_Cmd(0x06);
-    _delay((unsigned long)((500)*(8000000/4000.0)));
+
+    OSCCONbits.IRCF = 0b111;
+    SCS = 1;
+
+    adc_init(0, 0, 8, 0b1101);
+
 }
 
-void Lcd_Write_Char(char a) {
-    RE0 = 1;
-    Lcd_Port(a);
-    RE1 = 1;
-    _delay((unsigned long)((40)*(8000000/4000000.0)));
-    RE1 = 0;
+void output_LCD(void){
+    Lcd_Clear();
+    Lcd_Set_Cursor(1,1);
+    Lcd_Write_String("Counter: ");
+
+    separar_digitos8(counter, count);
+
+    Lcd_Write_String(count);
+
+    pot_volt = map(pot_val,0,255,0,500);
+    separar_digitos16(pot_volt, volt);
+    Lcd_Set_Cursor(2,1);
+    Lcd_Write_String("Voltage: ");
+
+    Lcd_Write_Char(volt[0]);
+    Lcd_Write_Char('.');
+    Lcd_Write_Char(volt[1]);
+    Lcd_Write_Char(volt[2]);
+    Lcd_Write_Char('V');
 }
 
-void Lcd_Write_String(char *a) {
-    int i;
-    for (i = 0; a[i] != '\0'; i++)
-        Lcd_Write_Char(a[i]);
+
+void separar_digitos8(uint8_t num, char dig8[]){
+    uint8_t div1,div2,div3,centenas,decenas,unidades;
+    div1 = num / 10;
+    unidades = num % 10;
+    div2 = div1 / 10;
+    decenas = div1 % 10;
+
+    centenas = div2 % 10;
+
+    dig8[2] = unidades + 0x30;
+    dig8[1] = decenas + 0x30;
+    dig8[0] = centenas + 0x30;
 }
 
-void Lcd_Shift_Right(void) {
-    Lcd_Cmd(0x1C);
+void separar_digitos16(uint16_t num, char dig16[]){
+    uint16_t div1,div2,div3,centenas,decenas,unidades;
+    div1 = num / 10;
+    unidades = num % 10;
+    div2 = div1 / 10;
+    decenas = div1 % 10;
+
+    centenas = div2 % 10;
+
+    dig16[2] = unidades + 0x30;
+    dig16[1] = decenas + 0x30;
+    dig16[0] = centenas + 0x30;
 }
 
-void Lcd_Shift_Left(void) {
-    Lcd_Cmd(0x18);
+uint16_t map(uint8_t val, uint8_t min1, uint8_t max1, uint8_t min2, long max2){
+    return ((val-min1)*(max2-min2)/(max1-min1))+min2;
+}
+
+void UART(void){
+
+        UART_write_string("Voltaje del potenciometro: ");
+        UART_write_char(volt[0]);
+        UART_write_char('.');
+        UART_write_char(volt[1]);
+        UART_write_char(volt[2]);
+        UART_write_string("V\n\r");
+
+        if(UART_read == '+')
+            counter++;
+        else if (UART_read == '-')
+            counter--;
 }

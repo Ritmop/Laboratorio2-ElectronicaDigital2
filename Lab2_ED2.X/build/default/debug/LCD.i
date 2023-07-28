@@ -2734,7 +2734,6 @@ void Lcd_Init(void) {
     Lcd_Cmd(0x0C);
     Lcd_Cmd(0x01);
     Lcd_Cmd(0x06);
-    _delay((unsigned long)((500)*(8000000/4000.0)));
 }
 
 void Lcd_Write_Char(char a) {
@@ -2747,8 +2746,12 @@ void Lcd_Write_Char(char a) {
 
 void Lcd_Write_String(char *a) {
     int i;
-    for (i = 0; a[i] != '\0'; i++)
+    for (i = 0; a[i] != '\0'; i++){
         Lcd_Write_Char(a[i]);
+
+    }
+
+
 }
 
 void Lcd_Shift_Right(void) {

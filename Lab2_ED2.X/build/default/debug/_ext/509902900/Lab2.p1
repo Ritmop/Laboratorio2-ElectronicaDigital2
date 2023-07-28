@@ -10,8 +10,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4134
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 4134: extern volatile __bit RBIF __attribute__((address(0x58)));
 [v _RBIF `Vb ~T0 @X0 0 e@88 ]
-"43 Prelab2.c
-[; ;Prelab2.c: 43: 
+"47 ../../laboratorio2/Lab2_ED2.X/Lab2.c
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 47:         pot_val = (adc_read()>>8) & 0x00FF;
 [v _ioc_portB `(v ~T0 @X0 0 ef ]
 "4107 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 4107: extern volatile __bit RB0 __attribute__((address(0x30)));
@@ -23,12 +23,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 4110: extern volatile __bit RB1 __attribute__((address(0x31)));
 [v _RB1 `Vb ~T0 @X0 0 e@49 ]
 [p mainexit ]
-"44 Prelab2.c
-[; ;Prelab2.c: 44: void setup(void){
+"48 ../../laboratorio2/Lab2_ED2.X/Lab2.c
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 48:         PORTA = pot_val;
 [v _setup `(v ~T0 @X0 0 ef ]
-"13 ./ADC_lib.h
-[; ;./ADC_lib.h: 13: uint16_t adc_read(void);
+[v F36 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\builtins.h
+[v __delay `JF36 ~T0 @X0 0 e ]
+[p i __delay ]
+"13 ../../laboratorio2/Lab2_ED2.X/ADC_lib.h
+[; ;../../laboratorio2/Lab2_ED2.X/ADC_lib.h: 13: uint16_t adc_read(void);
 [v _adc_read `(ui ~T0 @X0 0 ef ]
+"49 ../../laboratorio2/Lab2_ED2.X/Lab2.c
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 49: 
+[v _output_LCD `(v ~T0 @X0 0 ef ]
 "3387 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
 [v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
@@ -38,6 +45,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1416
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 1416: extern volatile unsigned char TRISA __attribute__((address(0x085)));
 [v _TRISA `Vuc ~T0 @X0 0 e@133 ]
+"1478
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 1478: extern volatile unsigned char TRISB __attribute__((address(0x086)));
+[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"228
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"1602
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 1602: extern volatile unsigned char TRISD __attribute__((address(0x088)));
+[v _TRISD `Vuc ~T0 @X0 0 e@136 ]
+"352
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+"1664
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 1664: extern volatile unsigned char TRISE __attribute__((address(0x089)));
+[v _TRISE `Vuc ~T0 @X0 0 e@137 ]
+"414
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 414: extern volatile unsigned char PORTE __attribute__((address(0x009)));
+[v _PORTE `Vuc ~T0 @X0 0 e@9 ]
+"1540
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 1540: extern volatile unsigned char TRISC __attribute__((address(0x087)));
+[v _TRISC `Vuc ~T0 @X0 0 e@135 ]
+"290
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 290: extern volatile unsigned char PORTC __attribute__((address(0x007)));
+[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
 "1868
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 1868:     struct {
 [s S70 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
@@ -56,18 +87,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4251
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 4251: extern volatile __bit SCS __attribute__((address(0x478)));
 [v _SCS `Vb ~T0 @X0 0 e@1144 ]
-"13 ./iocb_init.h
-[; ;./iocb_init.h: 13: void iocb_init(uint8_t);
+"13 ../../laboratorio2/Lab2_ED2.X/iocb_init.h
+[; ;../../laboratorio2/Lab2_ED2.X/iocb_init.h: 13: void iocb_init(uint8_t);
 [v _iocb_init `(v ~T0 @X0 0 ef1`uc ]
-"12 ./ADC_lib.h
-[; ;./ADC_lib.h: 12: void adc_init(uint8_t J, uint8_t R, uint8_t clock, uint8_t channel);
+"12 ../../laboratorio2/Lab2_ED2.X/ADC_lib.h
+[; ;../../laboratorio2/Lab2_ED2.X/ADC_lib.h: 12: void adc_init(uint8_t J, uint8_t R, uint8_t clock, uint8_t channel);
 [v _adc_init `(v ~T0 @X0 0 ef4`uc`uc`uc`uc ]
 "3900 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 3900: extern volatile __bit GIE __attribute__((address(0x5F)));
 [v _GIE `Vb ~T0 @X0 0 e@95 ]
-"4323
-[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 4323: extern volatile __bit T0IE __attribute__((address(0x5D)));
-[v _T0IE `Vb ~T0 @X0 0 e@93 ]
 "1352
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 1352:     struct {
 [s S50 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -83,9 +111,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1366
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 1366: extern volatile OPTION_REGbits_t OPTION_REGbits __attribute__((address(0x081)));
 [v _OPTION_REGbits `VS49 ~T0 @X0 0 e@129 ]
-"4320
-[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 4320: extern volatile __bit T0CS __attribute__((address(0x40D)));
-[v _T0CS `Vb ~T0 @X0 0 e@1037 ]
+"71 ../../laboratorio2/Lab2_ED2.X/LCD.h
+[; ;../../laboratorio2/Lab2_ED2.X/LCD.h: 71: void Lcd_Init(void);
+[v _Lcd_Init `(v ~T0 @X0 0 ef ]
+"67
+[; ;../../laboratorio2/Lab2_ED2.X/LCD.h: 67: void Lcd_Clear(void);
+[v _Lcd_Clear `(v ~T0 @X0 0 ef ]
+"69
+[; ;../../laboratorio2/Lab2_ED2.X/LCD.h: 69: void Lcd_Set_Cursor(char a, char b);
+[v _Lcd_Set_Cursor `(v ~T0 @X0 0 ef2`uc`uc ]
+"75
+[; ;../../laboratorio2/Lab2_ED2.X/LCD.h: 75: void Lcd_Write_String(char *a);
+[v _Lcd_Write_String `(v ~T0 @X0 0 ef1`*uc ]
+"50 ../../laboratorio2/Lab2_ED2.X/Lab2.c
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 50:         output_LCD();
+[v _separar_digitos8 `(v ~T0 @X0 0 ef2`uc`*uc ]
+"52
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 52: }
+[v _map `(ui ~T0 @X0 0 ef5`ui`ui`ui`ui`ui ]
+"51
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 51:     }
+[v _separar_digitos16 `(v ~T0 @X0 0 ef2`ui`*uc ]
+"73 ../../laboratorio2/Lab2_ED2.X/LCD.h
+[; ;../../laboratorio2/Lab2_ED2.X/LCD.h: 73: void Lcd_Write_Char(char a);
+[v _Lcd_Write_Char `(v ~T0 @X0 0 ef1`uc ]
 "54 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -320,160 +369,365 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"21 Prelab2.c
-[; ;Prelab2.c: 21:     }
+"22 ../../laboratorio2/Lab2_ED2.X/Lab2.c
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 22:         TMR0 = 50;
 [p x FOSC  =  INTRC_NOCLKOUT ]
-"22
-[; ;Prelab2.c: 22: }
-[p x WDTE  =  OFF        ]
 "23
-[; ;Prelab2.c: 23: 
-[p x PWRTE  =  OFF       ]
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 23:         T0IF = 0;
+[p x WDTE  =  OFF        ]
 "24
-[; ;Prelab2.c: 24: 
-[p x MCLRE  =  OFF       ]
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 24:     }
+[p x PWRTE  =  OFF       ]
 "25
-[; ;Prelab2.c: 25: void ioc_portB(void){
-[p x CP  =  OFF          ]
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 25:     if(RBIF){
+[p x MCLRE  =  OFF       ]
 "26
-[; ;Prelab2.c: 26:     if(!RB0) PORTA++;
-[p x CPD  =  OFF         ]
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 26:         ioc_portB();
+[p x CP  =  OFF          ]
 "27
-[; ;Prelab2.c: 27:     if(!RB1) PORTA--;
-[p x BOREN  =  OFF       ]
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 27:         RBIF = 0;
+[p x CPD  =  OFF         ]
 "28
-[; ;Prelab2.c: 28: }
-[p x IESO  =  OFF        ]
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 28:     }
+[p x BOREN  =  OFF       ]
 "29
-[; ;Prelab2.c: 29: 
-[p x FCMEN  =  OFF       ]
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 29: }
+[p x IESO  =  OFF        ]
 "30
-[; ;Prelab2.c: 30: 
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 30: 
+[p x FCMEN  =  OFF       ]
+"31
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 31: 
 [p x LVP  =  OFF         ]
-"33
-[; ;Prelab2.c: 33: 
-[p x BOR4V  =  BOR40V    ]
 "34
-[; ;Prelab2.c: 34: int main(void) {
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 34:     if(!RB1) PORTA--;
+[p x BOR4V  =  BOR40V    ]
+"35
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 35: }
 [p x WRT  =  OFF         ]
-"39
-[; ;Prelab2.c: 39:         adc_val = adc_read()>>8;
-[v _adc_val `uc ~T0 @X0 1 e ]
+"40
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 40: 
+[v _pot_val `uc ~T0 @X0 1 e ]
+"41
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 41: int main(void) {
+[v _pot_volt `ui ~T0 @X0 1 e ]
+"43
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 43:     while(1){
+[v _pot `uc ~T0 @X0 -> 3 `i e ]
+[i _pot
+:U ..
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+"44
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 44: 
+[v _volt `uc ~T0 @X0 -> 3 `i e ]
+[i _volt
+:U ..
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"48
-[; ;Prelab2.c: 48:     TRISA = 0;
+"56
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 56:     ANSEL = 0;
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"49
-[; ;Prelab2.c: 49:     PORTA = 0;
+"57
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 57:     ANSELH= 0b00100000;
 [e $ ! _T0IF 139  ]
 {
-"51
-[; ;Prelab2.c: 51: 
+"59
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 59:     PORTA = 0;
 [e = _TMR0 -> -> 50 `i `uc ]
-"52
-[; ;Prelab2.c: 52:     OSCCONbits.IRCF = 0b111;
+"60
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 60:     TRISB = 0;
 [e = _T0IF -> -> 0 `i `b ]
-"53
-[; ;Prelab2.c: 53:     SCS = 1;
+"61
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 61:     PORTB = 0;
 }
 [e :U 139 ]
-"54
-[; ;Prelab2.c: 54: 
+"62
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 62:     TRISD = 0;
 [e $ ! _RBIF 140  ]
 {
-"55
-[; ;Prelab2.c: 55:     iocb_init(0x0F);
+"63
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 63:     PORTD = 0;
 [e ( _ioc_portB ..  ]
-"56
-[; ;Prelab2.c: 56:     adc_init(0, 0, 8, 0b1101);
+"64
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 64:     TRISE = 0;
 [e = _RBIF -> -> 0 `i `b ]
-"57
-[; ;Prelab2.c: 57: 
+"65
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 65:     PORTE = 0;
 }
 [e :U 140 ]
-"58
-[; ;Prelab2.c: 58: 
+"66
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 66:     TRISC = 0;
 [e :UE 138 ]
 }
-"61
-[; ;Prelab2.c: 61:     OPTION_REGbits.PS = 0b000;
+"69
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 69: 
 [v _ioc_portB `(v ~T0 @X0 1 ef ]
 {
 [e :U _ioc_portB ]
 [f ]
-"62
-[; ;Prelab2.c: 62:     T0CS = 0;
+"70
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 70:     OSCCONbits.IRCF = 0b111;
 [e $ ! ! _RB0 142  ]
 [e ++ _PORTA -> -> 1 `i `Vuc ]
 [e :U 142 ]
-"63
-[; ;Prelab2.c: 63:     TMR0 = 50;
+"71
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 71:     SCS = 1;
 [e $ ! ! _RB1 143  ]
 [e -- _PORTA -> -> 1 `i `Vuc ]
 [e :U 143 ]
-"64
-[; ;Prelab2.c: 64:     T0IF = 0;
+"72
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 72: 
 [e :UE 141 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"70
+"78
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 78: 
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"71
+"79
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 79:     OPTION_REGbits.PS = 0b000;
 [e ( _setup ..  ]
-"72
+"80
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 80: 
 [e :U 146 ]
 {
-"75
-[e = _adc_val -> >> ( _adc_read ..  -> 8 `i `uc ]
-"76
-[e = _PORTA _adc_val ]
-"77
+"83
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 83: 
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"84
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 84: 
+[e = _pot_val -> & >> ( _adc_read ..  -> 8 `i -> -> 255 `i `ui `uc ]
+"85
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 85:     Lcd_Init();
+[e = _PORTA _pot_val ]
+"87
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 87: 
+[e ( _output_LCD ..  ]
+"88
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 88: void output_LCD(void){
 }
 [e :U 145 ]
 [e $U 146  ]
 [e :U 147 ]
-"78
+"89
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 89:     Lcd_Clear();
 [e :UE 144 ]
 }
-"80
+"91
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 91:     Lcd_Write_String("POT: ");
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"82
+"93
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 93:     separar_digitos8(pot_val, pot);
 [e = _ANSEL -> -> 0 `i `uc ]
-"83
+"94
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 94: 
 [e = _ANSELH -> -> 32 `i `uc ]
-"84
-[e = _TRISA -> -> 0 `i `uc ]
-"85
-[e = _PORTA -> -> 0 `i `uc ]
-"88
-[e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
-"89
-[e = _SCS -> -> 1 `i `b ]
-"91
-[e ( _iocb_init (1 -> -> 15 `i `uc ]
-"92
-[e ( _adc_init (4 , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 8 `i `uc -> -> 13 `i `uc ]
 "95
-[e = _GIE -> -> 1 `i `b ]
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 95:     Lcd_Write_String(pot);
+[e = _TRISA -> -> 0 `i `uc ]
 "96
-[e = _T0IE -> -> 1 `i `b ]
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 96: 
+[e = _PORTA -> -> 0 `i `uc ]
 "97
-[e = . . _OPTION_REGbits 0 0 -> -> 0 `i `uc ]
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 97:     pot_volt = map(132,0,255,0,500);
+[e = _TRISB -> -> 0 `i `uc ]
 "98
-[e = _T0CS -> -> 0 `i `b ]
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 98:     separar_digitos16(pot_volt, volt);
+[e = _PORTB -> -> 0 `i `uc ]
 "99
-[e = _TMR0 -> -> 50 `i `uc ]
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 99:     Lcd_Set_Cursor(2,4);
+[e = _TRISD -> -> 0 `i `uc ]
 "100
-[e = _T0IF -> -> 0 `i `b ]
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 100:     Lcd_Write_String("VOLT: ");
+[e = _PORTD -> -> 0 `i `uc ]
 "101
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 101: 
+[e = _TRISE -> -> 0 `i `uc ]
+"102
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 102:     Lcd_Write_Char(volt[0]);
+[e = _PORTE -> -> 0 `i `uc ]
+"103
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 103:     Lcd_Write_Char(volt[1]);
+[e = _TRISC -> -> 0 `i `uc ]
+"104
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 104:     Lcd_Write_Char('.');
+[e = _PORTC -> -> 0 `i `uc ]
+"107
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 107: }
+[e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
+"108
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 108: 
+[e = _SCS -> -> 1 `i `b ]
+"110
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 110: void separar_digitos8(uint8_t num, char dig8[]){
+[e ( _iocb_init (1 -> -> 35 `i `uc ]
+"111
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 111:     uint8_t div1,div2,div3,centenas,decenas,unidades;
+[e ( _adc_init (4 , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 8 `i `uc -> -> 13 `i `uc ]
+"114
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 114:     div2 = div1 / 10;
+[e = _GIE -> -> 1 `i `b ]
+"116
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 116: 
+[e = . . _OPTION_REGbits 0 0 -> -> 0 `i `uc ]
+"122
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 122: }
+[e ( _Lcd_Init ..  ]
+"123
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 123: 
 [e :UE 148 ]
 }
+"125
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 125:     uint16_t div1,div2,div3,centenas,decenas,unidades;
+[v _output_LCD `(v ~T0 @X0 1 ef ]
+{
+[e :U _output_LCD ]
+[f ]
+"126
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 126:     div1 = num / 10;
+[e ( _Lcd_Clear ..  ]
+"127
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 127:     unidades = num % 10;
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 5 `i `uc ]
+"128
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 128:     div2 = div1 / 10;
+[e ( _Lcd_Write_String (1 :s 1C ]
+"130
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 130: 
+[e ( _separar_digitos8 (2 , _pot_val &U _pot ]
+"132
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 132: 
+[e ( _Lcd_Write_String (1 &U _pot ]
+"134
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 134:     dig16[1] = decenas + 0x30;
+[e = _pot_volt ( _map (4 , , , , -> -> 132 `i `ui -> -> 0 `i `ui -> -> 255 `i `ui -> -> 0 `i `ui -> -> 500 `i `ui ]
+"135
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 135:     dig16[0] = centenas + 0x30;
+[e ( _separar_digitos16 (2 , _pot_volt &U _volt ]
+"136
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 136: }
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 4 `i `uc ]
+"137
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 137: 
+[e ( _Lcd_Write_String (1 :s 2C ]
+"139
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 139:     uint16_t res;
+[e ( _Lcd_Write_Char (1 *U + &U _volt * -> -> -> 0 `i `ui `ux -> -> # *U &U _volt `ui `ux ]
+"140
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 140:     res = ((val-min1)*(max2-min2)/(max1-min1))+min2;
+[e ( _Lcd_Write_Char (1 *U + &U _volt * -> -> -> 1 `i `ui `ux -> -> # *U &U _volt `ui `ux ]
+"141
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 141:     return res;
+[e ( _Lcd_Write_Char (1 -> -> 46 `ui `uc ]
+"142
+[; ;../../laboratorio2/Lab2_ED2.X/Lab2.c: 142: }
+[e ( _Lcd_Write_Char (1 *U + &U _volt * -> -> -> 2 `i `ui `ux -> -> # *U &U _volt `ui `ux ]
+"143
+[e ( _Lcd_Write_Char (1 -> -> 86 `ui `uc ]
+"144
+[e :UE 149 ]
+}
+"147
+[v _separar_digitos8 `(v ~T0 @X0 1 ef2`uc`*uc ]
+{
+[e :U _separar_digitos8 ]
+[v _num `uc ~T0 @X0 1 r1 ]
+[v _dig8 `*uc ~T0 @X0 1 r2 ]
+[f ]
+"148
+[v _div1 `uc ~T0 @X0 1 a ]
+[v _div2 `uc ~T0 @X0 1 a ]
+[v _div3 `uc ~T0 @X0 1 a ]
+[v _centenas `uc ~T0 @X0 1 a ]
+[v _decenas `uc ~T0 @X0 1 a ]
+[v _unidades `uc ~T0 @X0 1 a ]
+"149
+[e = _div1 -> / -> _num `i -> 10 `i `uc ]
+"150
+[e = _unidades -> % -> _num `i -> 10 `i `uc ]
+"151
+[e = _div2 -> / -> _div1 `i -> 10 `i `uc ]
+"152
+[e = _decenas -> % -> _div1 `i -> 10 `i `uc ]
+"154
+[e = _centenas -> % -> _div2 `i -> 10 `i `uc ]
+"156
+[e = *U + _dig8 * -> -> 2 `i `x -> -> # *U _dig8 `i `x -> + -> _unidades `i -> 48 `i `uc ]
+"157
+[e = *U + _dig8 * -> -> 1 `i `x -> -> # *U _dig8 `i `x -> + -> _decenas `i -> 48 `i `uc ]
+"158
+[e = *U + _dig8 * -> -> 0 `i `x -> -> # *U _dig8 `i `x -> + -> _centenas `i -> 48 `i `uc ]
+"159
+[e :UE 150 ]
+}
+"161
+[v _separar_digitos16 `(v ~T0 @X0 1 ef2`ui`*uc ]
+{
+[e :U _separar_digitos16 ]
+[v _num `ui ~T0 @X0 1 r1 ]
+[v _dig16 `*uc ~T0 @X0 1 r2 ]
+[f ]
+"162
+[v _div1 `ui ~T0 @X0 1 a ]
+[v _div2 `ui ~T0 @X0 1 a ]
+[v _div3 `ui ~T0 @X0 1 a ]
+[v _centenas `ui ~T0 @X0 1 a ]
+[v _decenas `ui ~T0 @X0 1 a ]
+[v _unidades `ui ~T0 @X0 1 a ]
+"163
+[e = _div1 / _num -> -> 10 `i `ui ]
+"164
+[e = _unidades % _num -> -> 10 `i `ui ]
+"165
+[e = _div2 / _div1 -> -> 10 `i `ui ]
+"166
+[e = _decenas % _div1 -> -> 10 `i `ui ]
+"168
+[e = _centenas % _div2 -> -> 10 `i `ui ]
+"170
+[e = *U + _dig16 * -> -> 2 `i `x -> -> # *U _dig16 `i `x -> + _unidades -> -> 48 `i `ui `uc ]
+"171
+[e = *U + _dig16 * -> -> 1 `i `x -> -> # *U _dig16 `i `x -> + _decenas -> -> 48 `i `ui `uc ]
+"172
+[e = *U + _dig16 * -> -> 0 `i `x -> -> # *U _dig16 `i `x -> + _centenas -> -> 48 `i `ui `uc ]
+"173
+[e :UE 151 ]
+}
+"175
+[v _map `(ui ~T0 @X0 1 ef5`ui`ui`ui`ui`ui ]
+{
+[e :U _map ]
+[v _val `ui ~T0 @X0 1 r1 ]
+[v _min1 `ui ~T0 @X0 1 r2 ]
+[v _max1 `ui ~T0 @X0 1 r3 ]
+[v _min2 `ui ~T0 @X0 1 r4 ]
+[v _max2 `ui ~T0 @X0 1 r5 ]
+[f ]
+"176
+[v _res `ui ~T0 @X0 1 a ]
+"177
+[e = _res + / * - _val _min1 - _max2 _min2 - _max1 _min1 _min2 ]
+"178
+[e ) _res ]
+[e $UE 152  ]
+"179
+[e :UE 152 ]
+}
+[a 1C 80 79 84 58 32 0 ]
+[a 2C 86 79 76 84 58 32 0 ]

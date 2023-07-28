@@ -1,4 +1,4 @@
-# 1 "Prelab2.c"
+# 1 "UART.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,9 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "Prelab2.c" 2
-# 15 "Prelab2.c"
+# 1 "UART.c" 2
+# 1 "./UART.h" 1
+# 15 "./UART.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2625,102 +2626,54 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 2 3
-# 15 "Prelab2.c" 2
+# 15 "./UART.h" 2
 
-# 1 "./iocb_init.h" 1
-# 13 "./iocb_init.h"
-void iocb_init(uint8_t);
-# 16 "Prelab2.c" 2
 
-# 1 "./ADC_lib.h" 1
-# 12 "./ADC_lib.h"
-void adc_init(uint8_t J, uint8_t R, uint8_t clock, uint8_t channel);
-uint16_t adc_read(void);
-void adc_sel_channel(uint8_t channel);
-uint8_t adc_get_channel(void);
-# 17 "Prelab2.c" 2
+void UART_RX_config(uint16_t baudrate);
+void UART_TX_config(uint16_t baudrate);
+void UART_write_char(char c);
+char UART_read_char();
+# 1 "UART.c" 2
 
 
 
-
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
+void UART_RX_config (uint16_t baudrate){
 
 
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
+    uint16_t BR;
+    BR = ((8000000/baudrate)/64) - 1;
+    SPBRG = BR & 0x00FF;
+    SPBRGH = (BR & 0xFF00) >> 8;
 
+    SYNC = 0;
+    SPEN = 1;
 
-
-
-uint8_t adc_val;
-
-
-
-void ioc_portB(void);
-void setup(void);
-
-
-
-void __attribute__((picinterrupt(("")))) isr(void){
-    if(T0IF){
-
-        TMR0 = 50;
-        T0IF = 0;
-    }
-    if(RBIF){
-        ioc_portB();
-        RBIF = 0;
-    }
+    CREN = 1;
 }
 
 
-void ioc_portB(void){
-    if(!RB0) PORTA++;
-    if(!RB1) PORTA--;
+void UART_TX_config (uint16_t baudrate){
+
+
+    uint16_t BR;
+    BR = ((8000000/baudrate)/64) - 1;
+    SPBRG = BR & 0x00FF;
+    SPBRGH = (BR & 0xFF00) >> 8;
+
+    SYNC = 0;
+    SPEN = 1;
+
+    TXEN = 1;
+    TXIF = 0;
 }
 
 
-
-
-
-int main(void) {
-    setup();
-    while(1){
-
-
-        adc_val = adc_read()>>8;
-        PORTA = adc_val;
-    }
+void UART_write_char (char c){
+    if(TXSTAbits.TRMT == 1)
+        TXREG = c;
 }
 
-void setup(void){
 
-    ANSEL = 0;
-    ANSELH= 0b00100000;
-    TRISA = 0;
-    PORTA = 0;
+char UART_read_char(){
 
-
-    OSCCONbits.IRCF = 0b111;
-    SCS = 1;
-
-    iocb_init(0x0F);
-    adc_init(0, 0, 8, 0b1101);
-
-
-    GIE = 1;
-    T0IE = 1;
-    OPTION_REGbits.PS = 0b000;
-    T0CS = 0;
-    TMR0 = 50;
-    T0IF = 0;
 }
